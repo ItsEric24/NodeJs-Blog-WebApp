@@ -207,6 +207,10 @@ textarea{
     .story-text{
         font-size: 18px;
     }
+
+    .create-blog h1{
+        font-size: 30px;
+    }
 }
 
 
