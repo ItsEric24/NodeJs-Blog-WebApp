@@ -52,6 +52,11 @@ h3{
 .content{
     margin-left: 20px;
 }
+.create-blog h1{
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 40px;
+}
 .create-blog form{
     max-width: 400px;
     margin: 0 auto;
@@ -78,6 +83,7 @@ textarea{
     border: 0;
     border-radius: 10px;
     font-size: 1.2em;
+    font-weight: 500;
     cursor: pointer;
 }
 
