@@ -7,8 +7,9 @@ const dotenv = require("dotenv").config();
 const app = express();
 
 // Connect to mongoDB
+const dbUrl = "mongodb+srv://chewbaccam200:iamlegend44b25@hero.yfv00bh.mongodb.net/Heroblog?retryWrites=true&w=majority";
 mongoose
-  .connect(process.env.DB_CONNECTION)
+  .connect(dbUrl)
   .then(() => {
     console.log("Connected to DataBase");
   })
