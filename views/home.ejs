@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./partials/head.ejs") %>
+  <body>
+    <nav class="home-nav">
+      <h1><a href="/">HERO BLOG</a></h1>
+      <div class="btn-container">
+        <% if (user){ %>
+        <button class="nav-btn log-out">
+          <a href="/blogs/logout">Log Out</a>
+        </button>
+        <li class="home-user">User: <%= user.username %></li>  
+        <% } else { %>
+        <button class="nav-btn log-in">
+          <a href="/blogs/login">Log in</a>
+        </button>
+        <button class="nav-btn sign-up">
+          <a href="/blogs/signup">Sign up</a>
+        </button>
+        <% } %>
+      </div>
+    </nav>
+    <div class="home-page">
+      <div class="home-content">
+        <h2>Welcome to Hero Blog, Where Superhero Enthusiasts Converge</h2>
+        <p>
+          Create visually stunning blogs that leave a lasting impression on your
+          readers.
+        </p>
+        <button class="home-btn">
+          <a type="button" href="/blogs/all-blogs">Read Blogs</a>
+        </button>
+      </div>
+      <div class="home-img">
+        <img src="/hero.jpg" alt="home-img" />
+      </div>
+    </div>
+  </body>
+</html>

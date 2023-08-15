@@ -3,6 +3,8 @@ const morgan = require("morgan");
 const mongoose = require("mongoose");
 const blogRoutes = require("./routes/blogRoutes");
 const dotenv = require("dotenv").config();
+const cookieParser = require("cookie-parser");
+const { checkUser } = require("./middleware/authMiddleware");
 
 const app = express();
 
@@ -19,12 +21,14 @@ mongoose
 //
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(cookieParser());
 
 app.use(express.static("public"));
 app.use(morgan("dev"));
 
-app.get("/", (req, res) => {
-  res.redirect("/blogs");
+app.get("/", checkUser, (req, res) => {
+  res.render("home", { title: "home" });
 });
 
 app.use("/blogs", blogRoutes);
@@ -33,7 +37,6 @@ app.use("/blogs", blogRoutes);
 app.get("/about", (req, res) => {
   res.render("about", { title: "About" });
 });
-
 
 app.use((req, res) => {
   res.render("404");
