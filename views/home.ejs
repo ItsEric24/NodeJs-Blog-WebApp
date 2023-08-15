@@ -3,13 +3,13 @@
   <%- include("./partials/head.ejs") %>
   <body>
     <nav class="home-nav">
-      <h1><a href="/">HERO BLOG</a></h1>
+      <h1><a href="/">HERO BLOG</a> <span class="burger-menu">☰</span></h1>
       <div class="btn-container">
         <% if (user){ %>
         <button class="nav-btn log-out">
           <a href="/blogs/logout">Log Out</a>
         </button>
-        <li class="home-user">User: <%= user.username %></li>  
+        <li class="home-user">User: <%= user.username %></li>
         <% } else { %>
         <button class="nav-btn log-in">
           <a href="/blogs/login">Log in</a>
@@ -35,5 +35,18 @@
         <img src="/hero.jpg" alt="home-img" />
       </div>
     </div>
+    <script>
+      const burgerMenu = document.querySelector(".burger-menu");
+      const btnContainer = document.querySelector(".btn-container");
+
+      burgerMenu.addEventListener("click", () => {
+        if (btnContainer.classList.contains("active")) {
+          burgerMenu.innerHTML = "☰"; // Change to burger icon
+        } else {
+          burgerMenu.innerHTML = "✖"; // Change to close icon
+        }
+        btnContainer.classList.toggle("active");
+      });
+    </script>
   </body>
 </html>
