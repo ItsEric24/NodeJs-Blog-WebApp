@@ -5,8 +5,7 @@ const { User } = require("../models/blog");
 
 const requireAuth = (req, res, next) => {
   const token = req.cookies.newUser;
-
-  // check if JWT exists & is verified
+    // check if JWT exists & is verified
   if (token) {
     jwt.verify(token, "mysecretkey", (err, decodedToken) => {
       if (err) {
@@ -23,7 +22,7 @@ const requireAuth = (req, res, next) => {
 
 // check the user
 const checkUser = (req, res, next) => {
-  const token = req.cookies.newUser;
+  const token = req.cookies.newUser; 
 
   if (token) {
     jwt.verify(token, "mysecretkey", async (err, decodedToken) => {
